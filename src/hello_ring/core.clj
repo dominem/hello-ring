@@ -1,6 +1,11 @@
-(ns hello-ring.core)
+(ns hello-ring.core
+  (:require
+    [hello-ring.pretty :as pretty]))
 
-(defn -main [_]
-  {:status 200
+(defn handler [request]
+  {:status  200
    :headers {"Content-Type" "text/html"}
-   :body "Hello, Ring!"})
+   :body    (pretty/map->str request)})
+
+(defn -main [request]
+  (handler request))
