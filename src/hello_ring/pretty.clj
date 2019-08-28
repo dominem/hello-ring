@@ -9,3 +9,8 @@
   (let [out (StringWriter.)]
     (pp/pprint m out)
     (html/pre-code (.toString out))))
+
+(defn map->hiccup [m]
+  (let [out (StringWriter.)]
+    (pp/pprint m out)
+    [:pre [:code (.toString out)]]))

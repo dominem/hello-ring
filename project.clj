@@ -5,7 +5,8 @@
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [ring/ring-core "1.7.1"]
                  [ring/ring-jetty-adapter "1.7.1"]
-                 [ring/ring-devel "1.7.1"]]
+                 [ring/ring-devel "1.7.1"]
+                 [hiccup "1.0.5"]]
   :ring {:handler hello-ring.core/-main}
   :plugins [[lein-ring "0.12.5"]]
   :main ^:skip-aot hello-ring.core
