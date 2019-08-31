@@ -1,0 +1,1 @@
+web: java $JVM_OPTS -cp target/hello-ring-standalone.jar clojure.main -m hello-ring.core

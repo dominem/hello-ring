@@ -2,7 +2,8 @@
   (:require
     [hello-ring.pretty :as pretty]
     [hiccup.core :as hiccup]
-    [hiccup.page :as hiccup-page]))
+    [hiccup.page :as hiccup-page]
+    [ring.adapter.jetty :refer [run-jetty]]))
 
 (def bootstrap-css
   [:link
@@ -72,5 +73,11 @@
     "/about" (about-page request)
     {:status 404}))
 
-(defn -main [request]
+(defn main-handler [request]
   (route request))
+
+(defn get-port []
+  (Integer/valueOf (or (System/getenv "PORT") "3000")))
+
+(defn -main [& args]
+  (run-jetty main-handler {:port (get-port)}))
